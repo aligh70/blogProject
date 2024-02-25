@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_BLOGS_INFO } from "../../qraphql/queries";
 
 function Blogs() {
-  return (
-    <div>Blogs</div>
-  )
+  const { loading, data, errors } = useQuery(GET_BLOGS_INFO);
+  console.log({ loading, data, errors });
+  return <div>Blogs</div>;
 }
 
-export default Blogs
+export default Blogs;
