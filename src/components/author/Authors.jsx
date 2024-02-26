@@ -22,18 +22,18 @@ function Authors() {
       {authors.map((author, index) => (
         <React.Fragment key={author.id}>
           <Grid item xs={12} padding={2}>
-            {/* <Link
+            <Link
             to={`/authors/${author.slug}`}
             style={{
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
-            }}> */}
+            }}>
             <Avatar src={author.avatar.url} sx={{ marginLeft: 2 }} />
             <Typography component="p" variant="p" color="text.secondary">
               {author.name}
             </Typography>
-            {/* </Link> */}
+            </Link>
           </Grid>
           {index !== authors.length - 1 && (
             <Grid item xs={12}>
