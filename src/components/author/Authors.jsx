@@ -3,11 +3,12 @@ import React from "react";
 import { GET_AUTHORS_INFO } from "../../qraphql/queries";
 import { Avatar, Divider, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import Loader from "../../shared/Loader";
 
 function Authors() {
   const { loading, data, errors } = useQuery(GET_AUTHORS_INFO);
 
-  if (loading) return <h3>Loading...</h3>;
+  if (loading) return <Loader />;
 
   if (errors) return <h3>An error occured!</h3>;
 
@@ -23,16 +24,16 @@ function Authors() {
         <React.Fragment key={author.id}>
           <Grid item xs={12} padding={2}>
             <Link
-            to={`/authors/${author.slug}`}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              textDecoration: "none",
-            }}>
-            <Avatar src={author.avatar.url} sx={{ marginLeft: 2 }} />
-            <Typography component="p" variant="p" color="text.secondary">
-              {author.name}
-            </Typography>
+              to={`/authors/${author.slug}`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+              }}>
+              <Avatar src={author.avatar.url} sx={{ marginLeft: 2 }} />
+              <Typography component="p" variant="p" color="text.secondary">
+                {author.name}
+              </Typography>
             </Link>
           </Grid>
           {index !== authors.length - 1 && (

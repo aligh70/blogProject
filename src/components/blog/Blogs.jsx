@@ -3,11 +3,12 @@ import { Grid } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { GET_BLOGS_INFO } from "../../qraphql/queries";
 import CardEL from "../../shared/CardEL";
+import Loader from "../../shared/Loader";
 
 function Blogs() {
   const { loading, data, errors } = useQuery(GET_BLOGS_INFO);
 
-  if (loading) return <h4>loading</h4>;
+  if (loading) return <Loader />;
   if (errors) return <h4>an error occured!</h4>;
   return (
     <Grid container spacing={2}>
