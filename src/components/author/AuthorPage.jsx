@@ -20,7 +20,6 @@ function AuthorPage() {
   const {
     author: { name, field, avatar, description, posts },
   } = data;
-  console.log(data);
   return (
     <Container maxWidth="lg">
       <Grid container mt={10}>
