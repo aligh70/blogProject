@@ -6,6 +6,7 @@ import Loader from "../../shared/Loader";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import sanitizeHtml from "sanitize-html";
+import CommentForm from "../comment/CommentForm";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -57,6 +58,9 @@ function BlogPage() {
             dangerouslySetInnerHTML={{
               __html: sanitizeHtml(data.post.content.html),
             }}></div>
+        </Grid>
+        <Grid item xs={12}>
+          <CommentForm slug={slug}/>
         </Grid>
       </Grid>
     </Container>
