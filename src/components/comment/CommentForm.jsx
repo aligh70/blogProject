@@ -17,14 +17,12 @@ function CommentForm({ slug }) {
   const sendHandler = () => {
     if (name && email && text) {
       sendComment();
-    } else {
-      toast.warn("تمام فیلدها را پر کنید", {
+      toast.success("کامنت ارسال شد و منتظر تایید می باشد", {
         position: "top-center",
         theme: "colored",
       });
-    }
-    if (data) {
-      toast.success("کامنت ارسال شد و منتظر تایید می باشد", {
+    } else {
+      toast.warn("تمام فیلدها را پر کنید", {
         position: "top-center",
         theme: "colored",
       });
